@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergei Afonchenko resume</title>
+</head>
+<body>
+    <script>
+        // Function to download file using JavaScript
+        function downloadFile(url) {
+            // Creating new link node.
+            var link = document.createElement('a');
+            link.href = url;
+
+            // Setting the file name.
+            link.download = url.split("/").pop();
+
+            //triggering the function
+            link.click();
+        }
+        
+        // Call the download function and specify the URL
+        downloadFile('https://raw.githubusercontent.com/DIRECTcut/sergeia-resume-full-stack/master/Senior%20Full%20Stack%20Developer.docx');
+    </script>
+    
+</body>
+</html>
