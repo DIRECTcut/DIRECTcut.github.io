@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sergei Afonchenko resume</title>
+    <title>Sergei Afonchenko Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
+    <h1>Sergei Afonchenko</h1>
+    <p>Welcome!</p>
+    <p>Click the buttons below to download the resume in your preferred format:</p>
+    <button onclick="downloadFile('https://raw.githubusercontent.com/DIRECTcut/sergeia-resume-full-stack/master/Senior%20Full%20Stack%20Developer.docx')">Download .docx</button>
+    <button onclick="downloadFile('https://raw.githubusercontent.com/DIRECTcut/sergeia-resume-full-stack/master/Senior%20Full%20Stack%20Developer.pdf')">Download .pdf</button>
+
     <script>
         // Function to download file using JavaScript
         function downloadFile(url) {
@@ -19,10 +55,17 @@
             //triggering the function
             link.click();
         }
-        
-        // Call the download function and specify the URL
-        downloadFile('https://raw.githubusercontent.com/DIRECTcut/sergeia-resume-full-stack/master/Senior%20Full%20Stack%20Developer.docx');
+
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileType = urlParams.get('file');
+
+        // Check if a specific file type is requested
+        if (fileType === 'docx') {
+            downloadFile('https://raw.githubusercontent.com/DIRECTcut/sergeia-resume-full-stack/master/Senior%20Full%20Stack%20Developer.docx');
+        } else if (fileType === 'pdf') {
+            downloadFile('https://raw.githubusercontent.com/DIRECTcut/sergeia-resume-full-stack/master/Senior%20Full%20Stack%20Developer.pdf');
+        }
     </script>
-    
 </body>
 </html>
